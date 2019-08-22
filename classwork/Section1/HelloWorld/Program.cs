@@ -2,7 +2,6 @@
 
 namespace HelloWorld
 {
-
     class Program
     {
 
