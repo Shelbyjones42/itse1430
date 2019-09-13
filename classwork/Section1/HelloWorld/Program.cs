@@ -276,7 +276,7 @@ namespace HelloWorld
             //50th element to 7.25
             payRates[49] = 7.25;
 
-            //Read 89th element inoto temp variable
+            //Read 89th element into temp variable
             double payRate = payRates[88];
 
             //Print out the 80th element
