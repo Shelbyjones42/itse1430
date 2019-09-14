@@ -11,10 +11,13 @@ namespace Itse1430.Maze
 
         static void Main ( string[] args )
         {
-            Console.WriteLine("You are about to enter the Maze of Colors.");
-            Console.ReadLine ();
+            
+
+                
         }
-        private static void Room1()
+
+        }
+        private static void StartRoom()
         {
             
         }
@@ -74,5 +77,6 @@ namespace Itse1430.Maze
 
         }
 
+        static char Movement ()
     }
 }
