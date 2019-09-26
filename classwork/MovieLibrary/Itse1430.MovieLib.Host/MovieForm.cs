@@ -17,24 +17,26 @@ namespace Itse1430.MovieLib.Host
             InitializeComponent ();
         }
 
-        public Movie Movie;
-
-        private void Label3_Click ( object sender, EventArgs e )
+        //Must be a property...
+        public Movie Movie { get; set; }
+        protected override void OnLoad ( EventArgs e )
         {
+            //Call base type
+            //OnLoad(e);
 
+            base.OnLoad (e);
+
+            if  (Movie != null)
+            {
+                _txtName.Text = Movie.Title;
+                _txtDescription.Text = Movie.Description;
+                _txtReleaseYear.Text = Movie.ReleaseYear.ToString();
+                _txtRunLength.Text = Movie.RunLength.ToString();
+                cbRating.Text = Movie.Rating;
+                chkHasSeen.Checked = Movie.HasSeen;
+            }
         }
-
-        private void TextBox1_TextChanged ( object sender, EventArgs e )
-        {
-
-        }
-
-        private void CheckBox1_CheckedChanged ( object sender, EventArgs e )
-        {
-
-        }
-
-        private void BtnSave_Click ( object sender, EventArgs e )
+        private void OnSave ( object sender, EventArgs e )
         {
             var movie = new Movie ();
             //Movie.set_title(_txtName.Text);

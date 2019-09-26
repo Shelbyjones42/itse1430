@@ -58,7 +58,6 @@
             this._txtName.Name = "_txtName";
             this._txtName.Size = new System.Drawing.Size(100, 20);
             this._txtName.TabIndex = 1;
-            this._txtName.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
             // 
             // chkHasSeen
             // 
@@ -69,7 +68,6 @@
             this.chkHasSeen.TabIndex = 2;
             this.chkHasSeen.Text = "Has Seen?";
             this.chkHasSeen.UseVisualStyleBackColor = true;
-            this.chkHasSeen.CheckedChanged += new System.EventHandler(this.CheckBox1_CheckedChanged);
             // 
             // label2
             // 
@@ -95,7 +93,6 @@
             this.label3.Size = new System.Drawing.Size(38, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "Rating";
-            this.label3.Click += new System.EventHandler(this.Label3_Click);
             // 
             // cbRating
             // 
@@ -151,7 +148,7 @@
             this.btnSave.TabIndex = 11;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
+            this.btnSave.Click += new System.EventHandler(this.OnSave);
             // 
             // btnCancel
             // 
