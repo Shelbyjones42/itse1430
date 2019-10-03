@@ -95,5 +95,10 @@ namespace Itse1430.MovieLib.Host
             }
         }
         #endregion
+
+        private void LabelProductName_Click ( object sender, EventArgs e )
+        {
+
+        }
     }
 }
