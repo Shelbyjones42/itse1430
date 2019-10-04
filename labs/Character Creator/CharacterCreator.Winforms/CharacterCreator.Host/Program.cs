@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CharacterCreator.Winforms
+namespace CharacterCreator.Host
 {
     static class Program
     {
@@ -16,7 +16,7 @@ namespace CharacterCreator.Winforms
         {
             Application.EnableVisualStyles ();
             Application.SetCompatibleTextRenderingDefault (false);
-            Application.Run (new MainForm ());
+            Application.Run (new CreateForm ());
         }
     }
 }

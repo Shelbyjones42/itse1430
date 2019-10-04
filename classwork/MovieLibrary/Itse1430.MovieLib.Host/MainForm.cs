@@ -191,6 +191,11 @@ namespace Itse1430.MovieLib.Host
         }
 
         private Movie[] _movies = new Movie[100];
+
+        private void _lstMovies_SelectedIndexChanged ( object sender, EventArgs e )
+        {
+
+        }
     }
 
 }
