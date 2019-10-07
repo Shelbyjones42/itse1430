@@ -12,13 +12,24 @@ namespace Itse1430.MovieLib.Host
 {
     public partial class MovieForm : Form
     {
-        public MovieForm ()
+        //Base ctor is always called unless specified
+        public MovieForm () //: base()
         {
             InitializeComponent ();
         }
 
+        // Call default ctor first
+        public MovieForm ( string title ) : this()
+        {
+            //Handled by ctor chaining
+            //InitializeComponent ();
+
+            Text = title;
+        }
+
         //Must be a property...
         public Movie Movie { get; set; }
+
         protected override void OnLoad ( EventArgs e )
         {
             //Call base type
@@ -34,8 +45,11 @@ namespace Itse1430.MovieLib.Host
                 _txtRunLength.Text = Movie.RunLength.ToString();
                 cbRating.Text = Movie.Rating;
                 chkHasSeen.Checked = Movie.HasSeen;
-            }
+            };
+
+            ValidateChildren ();
         }
+
         private void OnSave ( object sender, EventArgs e )
         {
             if (!ValidateChildren ())
@@ -88,9 +102,11 @@ namespace Itse1430.MovieLib.Host
             {
                 e.Cancel = true;
                 _errors.SetError (control, "Name is required");
+            } else
+            {
+                _errors.SetError (control, "");
             }
         }
-
 
         private void OnValidatingReleaseYear ( object sender, CancelEventArgs e )
         {
@@ -98,7 +114,14 @@ namespace Itse1430.MovieLib.Host
 
             var value = GetAsInt32 (control);
             if (value < 1900)
+            {
                 e.Cancel = true;
+                _errors.SetError (control, "Release Year >= 1900");
+            } else
+            {
+                _errors.SetError (control, "");
+            }
+
         }
         private void OnValidatigRunLength ( object sender, CancelEventArgs e )
         {
@@ -106,15 +129,31 @@ namespace Itse1430.MovieLib.Host
 
             var value = GetAsInt32 (control);
             if (value < 0)
+            {
                 e.Cancel = true;
+                _errors.SetError (control, "Run Length must be >= 0");
+            } else
+            {
+                _errors.SetError (control, "");
+            }
+
         }
         private void OnValidatingRating ( object sender, CancelEventArgs e )
         {
             var control = sender as ComboBox;
 
             // Text is requried
-            if (control.SelectedText == "")
+            if (control.SelectedIndex == -1)
+            {
                 e.Cancel = true;
+                _errors.SetError (control, "Rating is required");
+            } else
+            {
+                _errors.SetError (control, "");
+            }
+
         }
-    }
+    
+
+        }
 }
