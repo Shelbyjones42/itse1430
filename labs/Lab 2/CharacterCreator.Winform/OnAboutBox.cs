@@ -7,11 +7,11 @@ using System.Reflection;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CharacterCreator.Winforms
+namespace CharacterCreator.Winform
 {
-    partial class AboutBox1 : Form
+    partial class OnAboutBox : Form
     {
-        public AboutBox1 ()
+        public OnAboutBox ()
         {
             InitializeComponent ();
             this.Text = String.Format ("About {0}", AssemblyTitle);

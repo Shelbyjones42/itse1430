@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BE59E0FE-BFB6-4BB3-AB72-8463036F6AD8}</ProjectGuid>
+    <ProjectGuid>{F7AAD7D1-B9BD-480E-A8F0-A3FA957AB01E}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>CharacterCreator.Winforms</RootNamespace>
-    <AssemblyName>CharacterCreator.Winforms</AssemblyName>
+    <RootNamespace>CharacterCreator.Winform</RootNamespace>
+    <AssemblyName>CharacterCreator.Winform</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,17 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AboutBox1.cs">
+    <Compile Include="Create New Character.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AboutBox1.Designer.cs">
-      <DependentUpon>AboutBox1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Character.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Character.Designer.cs">
-      <DependentUpon>Character.cs</DependentUpon>
+    <Compile Include="Create New Character.Designer.cs">
+      <DependentUpon>Create New Character.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -64,16 +58,22 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="OnAboutBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OnAboutBox.Designer.cs">
+      <DependentUpon>OnAboutBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="AboutBox1.resx">
-      <DependentUpon>AboutBox1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Character.resx">
-      <DependentUpon>Character.cs</DependentUpon>
+    <EmbeddedResource Include="Create New Character.resx">
+      <DependentUpon>Create New Character.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OnAboutBox.resx">
+      <DependentUpon>OnAboutBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -96,6 +96,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CharacterCreator\CharacterCreator.csproj">
+      <Project>{e1e85b82-1118-4c66-977b-02547540a348}</Project>
+      <Name>CharacterCreator</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
