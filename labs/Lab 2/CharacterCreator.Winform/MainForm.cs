@@ -20,7 +20,8 @@ namespace CharacterCreator.Winform
             character.Description = character.Name;
         }
 
-        private void AboutToolStripMenuItem_Click ( object sender, EventArgs e )
+
+        private void OnHelpAbout ( object sender, EventArgs e )
         {
             var form = new OnAboutBox ();
             form.ShowDialog (this); 

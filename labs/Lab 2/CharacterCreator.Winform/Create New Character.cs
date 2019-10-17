@@ -61,8 +61,18 @@ namespace CharacterCreator.Winform
             var message = character.Validate ();
             if (!String.IsNullOrEmpty (message))
             {
+<<<<<<< HEAD
+                MessageBox.Show (this, message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            };
+
+            Character = character;
+            DialogResult = DialogResult.OK;
+            Close ();
+=======
                 MessageBox.Show (this, message, "Error", )
             }
+>>>>>>> 68cf341013862ab2bb00b6ceee97f1db28444cf4
 
         }
 
@@ -73,11 +83,35 @@ namespace CharacterCreator.Winform
 
             return 0;
         }
+<<<<<<< HEAD
+        private void BtnCancel_Click ( object sender, EventArgs e )
+        {
+            DialogResult = DialogResult.Cancel;
+            Close ();
+        }
+
+        private void OnValidatingName (object sender, CancelEventArgs e)
+        {
+            var control = sender as TextBox;
+            
+            if (control.Text == "")
+            {
+                e.Cancel = true;
+                _errors.SetError (control, "Name is required");
+            }else
+            {
+                _errors.SetError (control, "");
+            }
+        }
+
+
+=======
         private void btnCancel_Click ( object sender, EventArgs e )
         {
             Close ();
         }
 
+>>>>>>> 68cf341013862ab2bb00b6ceee97f1db28444cf4
        
     }
 }

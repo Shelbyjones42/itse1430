@@ -1,4 +1,12 @@
+<<<<<<< HEAD
 ﻿namespace CharacterCreator.Winform
+=======
+<<<<<<< HEAD:classwork/MovieLibrary - Original/Itse1430.MovieLib.Host/AboutBox1.Designer.cs
+﻿namespace Itse1430.MovieLib.Host
+=======
+﻿namespace CharacterCreator.Winform
+>>>>>>> 68cf341013862ab2bb00b6ceee97f1db28444cf4:labs/Lab 2/CharacterCreator.Winform/OnAboutBox.Designer.cs
+>>>>>>> 68cf341013862ab2bb00b6ceee97f1db28444cf4
 {
     partial class OnAboutBox
     {
@@ -89,6 +97,10 @@
             this.labelProductName.TabIndex = 19;
             this.labelProductName.Text = "Shelby Jones";
             this.labelProductName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+<<<<<<< HEAD
+=======
+            this.labelProductName.Click += new System.EventHandler(this.LabelProductName_Click);
+>>>>>>> 68cf341013862ab2bb00b6ceee97f1db28444cf4
             // 
             // labelVersion
             // 
@@ -150,12 +162,28 @@
             this.okButton.TabIndex = 24;
             this.okButton.Text = "&OK";
             // 
+<<<<<<< HEAD
             // OnAboutBox
+=======
+<<<<<<< HEAD:classwork/MovieLibrary - Original/Itse1430.MovieLib.Host/AboutBox1.Designer.cs
+            // AboutBox1
+=======
+            // OnAboutBox
+>>>>>>> 68cf341013862ab2bb00b6ceee97f1db28444cf4:labs/Lab 2/CharacterCreator.Winform/OnAboutBox.Designer.cs
+>>>>>>> 68cf341013862ab2bb00b6ceee97f1db28444cf4
             // 
             this.AcceptButton = this.okButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(435, 283);
+=======
+<<<<<<< HEAD:classwork/MovieLibrary - Original/Itse1430.MovieLib.Host/AboutBox1.Designer.cs
+            this.ClientSize = new System.Drawing.Size(580, 348);
+=======
+            this.ClientSize = new System.Drawing.Size(435, 283);
+>>>>>>> 68cf341013862ab2bb00b6ceee97f1db28444cf4:labs/Lab 2/CharacterCreator.Winform/OnAboutBox.Designer.cs
+>>>>>>> 68cf341013862ab2bb00b6ceee97f1db28444cf4
             this.Controls.Add(this.tableLayoutPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
