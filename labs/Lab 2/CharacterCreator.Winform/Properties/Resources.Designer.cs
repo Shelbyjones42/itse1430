@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CharacterCreator.Host.Properties
+namespace CharacterCreator.Winform.Properties
 {
 
 
@@ -43,7 +43,7 @@ namespace CharacterCreator.Host.Properties
             get {
                 if ((resourceMan == null))
                 {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager ("CharacterCreator.Host.Properties.Resources", typeof (Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager ("CharacterCreator.Winform.Properties.Resources", typeof (Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

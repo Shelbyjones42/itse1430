@@ -172,7 +172,10 @@ namespace Itse1430.MovieLib.Host
             }
 
         }
-    
+
+        private void MovieForm_Load ( object sender, EventArgs e )
+        {
 
         }
+    }
 }
