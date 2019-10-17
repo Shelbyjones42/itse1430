@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 namespace Itse1430.MovieLib
 {
     /// <summary>Represents movie data.</summary>
-    public class Movie
+    public class Movie : IValidatableObject
     {
 
         public int Id { get; set; }
@@ -91,43 +92,76 @@ namespace Itse1430.MovieLib
             return $"{Title} ({ReleaseYear})";
         }
 
-        // Fields - data to be stored
-        // TODO: Never make fields public!!
-        private string _title = "";
-        private string _description = "";
-        private int _releaseYear = 1900;
-        private string _rating = "";
-        private bool _hasSeen;
-        private int _runLength;
+        
 
        /// <summary>Validates the movie.</summary>
        /// <returns>An error message if validation fails or empty string otherwise.</returns>
-        public string Validate ()
+        //public string Validate ()
+        //{
+        //    // this is implicit first parameter, represents instance
+        //    //var title = "";
+        //
+        //    //Name is required
+        //    if (String.IsNullOrEmpty (this.Title))
+        //        return "Title is Required";
+        //
+        //    //Release year >= 1900
+        //    if (ReleaseYear < 1900)
+        //        return "Release Year must be >= 1900";
+        //
+        //    // Runlength >= 0
+        //    if (RunLength < 0)
+        //        return "Run Length must be >= 0";
+        //
+        //    //Rating is required
+        //    if (String.IsNullOrEmpty (Rating))
+        //        return "Rating is required";
+        //    return "";
+        //}
+
+        public IEnumerable<ValidationResult> Validate ( ValidationContext validationContext )
         {
-            // this is implicit first parameter, represents instance
-            var title = "";
+            //Iterator syntax
+            //var results = new List<ValidationResult> ();
 
             //Name is required
-            if (String.IsNullOrEmpty (this.Title))
-                return "Title is Required";
+            if (String.IsNullOrEmpty (Title))
+                //results.Add(new ValidationResult( "Title is Required"));
+                yield return new ValidationResult ("Title is Required");
 
             //Release year >= 1900
             if (ReleaseYear < 1900)
-                return "Release Year must be >= 1900";
+                //results.Add (new ValidationResult ("Release Year must be >= 1900"));
+                yield return new ValidationResult ("Release Year must be >= 1900");
 
             // Runlength >= 0
             if (RunLength < 0)
-                return "Run Length must be >= 0";
+                //results.Add (new ValidationResult ("Run Length must be >= 0"));
+                yield return new ValidationResult ("Run Length must be >= 0");
 
             //Rating is required
             if (String.IsNullOrEmpty (Rating))
-                return "Rating is required";
-            return "";
+                //results.Add (new ValidationResult("Rating is required"));
+                yield return new ValidationResult ("Rating is required");
+            
 
+            //return results;
         }
         // Can new up other objects
         // Can't use with the fields above 
         //private Movie orginalMovie = new Movie ();
-    }   
+        
+        // Fields - data to be stored
+        // TODO: Never make fields public!!
+        private string _title = "";
+        private string _description = "";
+        private string _rating = "";
+
+        //private int _releaseYear = 1900;
+        //private bool _hasSeen;
+        //private int _runLength;
+        //private readonly int _releaseYearForColo = 1938;
+
+    }
 }       
            

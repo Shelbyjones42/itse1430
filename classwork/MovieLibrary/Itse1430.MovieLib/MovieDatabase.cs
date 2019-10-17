@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,9 +15,9 @@ namespace Itse1430.MovieLib
             //Collection initializer
             _movies = new List<Movie> () {
 
-            new Movie () {Id = ++_id, Title = "Jaws", ReleaseYear = 1979, Rating = "PG", },
-            new Movie () {Id = ++_id, Title = "Jaws 2", ReleaseYear = 1981, Rating = "PG-13", },
-            new Movie () {Id = ++_id, Title = "Matrix", ReleaseYear = 2004, Rating = "R", }
+            new Movie () {Id = ++_id, Title = "Jaws", ReleaseYear = 1979, Rating = "PG" },
+            new Movie () {Id = ++_id, Title = "Jaws 2", ReleaseYear = 1981, Rating = "PG-13" },
+            new Movie () {Id = ++_id, Title = "Matrix", ReleaseYear = 2004, Rating = "R" }
         };
             //var movie = new Movie () { 
             //    Id = ++_id,
@@ -44,15 +45,17 @@ namespace Itse1430.MovieLib
             //};
             ////Add (movie);
             //_movies.Add (movie);
-
-
         }
         public Movie Add ( Movie movie )
         {
             //TODO: Validation
             if (movie == null)
                 return null;
-            if (!String.IsNullOrEmpty (movie.Validate ()))
+
+            //if (!String.IsNullOrEmpty (movie.Validate ()))
+            var context = new ValidationContext (movie);
+            var results = movie.Validate (context);
+            if (results.Count () > 0)
                 return null;
 
             //Name must be unique
@@ -110,7 +113,11 @@ namespace Itse1430.MovieLib
                 return;
             if (newMovie == null)
                 return;
-            if (!String.IsNullOrEmpty (newMovie.Validate ()))
+
+            //if (!String.IsNullOrEmpty (newMovie.Validate ()))
+            var context = new ValidationContext (newMovie);
+            var results = newMovie.Validate (context);
+            if (results.Count () > 0)
                 return;
 
             //Must be unique
