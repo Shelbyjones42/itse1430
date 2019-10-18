@@ -40,7 +40,7 @@
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this._lstMovies = new System.Windows.Forms.ListBox();
+            this._lstCharacters = new System.Windows.Forms.ListBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,6 +70,7 @@
             this.exitToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
             this.exitToolStripMenuItem1.Size = new System.Drawing.Size(134, 22);
             this.exitToolStripMenuItem1.Text = "E&xit";
+            this.exitToolStripMenuItem1.Click += new System.EventHandler(this.OnFileExit);
             // 
             // characterToolStripMenuItem
             // 
@@ -86,25 +87,28 @@
             // 
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
             this.addToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Insert;
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.addToolStripMenuItem.Text = "Add";
+            this.addToolStripMenuItem.Click += new System.EventHandler(this.OnCharacterAdd);
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.editToolStripMenuItem.Text = "Edit";
+            this.editToolStripMenuItem.Click += new System.EventHandler(this.OnCharacterEdit);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(115, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.OnCharacterDelete);
             // 
             // helpToolStripMenuItem
             // 
@@ -124,14 +128,14 @@
             // 
             // _lstMovies
             // 
-            this._lstMovies.DisplayMember = "Title";
-            this._lstMovies.Dock = System.Windows.Forms.DockStyle.Fill;
-            this._lstMovies.FormattingEnabled = true;
-            this._lstMovies.Location = new System.Drawing.Point(0, 0);
-            this._lstMovies.Margin = new System.Windows.Forms.Padding(4);
-            this._lstMovies.Name = "_lstMovies";
-            this._lstMovies.Size = new System.Drawing.Size(266, 412);
-            this._lstMovies.TabIndex = 1;
+            this._lstCharacters.DisplayMember = "Title";
+            this._lstCharacters.Dock = System.Windows.Forms.DockStyle.Fill;
+            this._lstCharacters.FormattingEnabled = true;
+            this._lstCharacters.Location = new System.Drawing.Point(0, 0);
+            this._lstCharacters.Margin = new System.Windows.Forms.Padding(4);
+            this._lstCharacters.Name = "_lstMovies";
+            this._lstCharacters.Size = new System.Drawing.Size(266, 412);
+            this._lstCharacters.TabIndex = 1;
             // 
             // MainForm
             // 
@@ -139,7 +143,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(266, 412);
             this.Controls.Add(this.menuStrip1);
-            this.Controls.Add(this._lstMovies);
+            this.Controls.Add(this._lstCharacters);
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(260, 420);
             this.Name = "MainForm";
@@ -170,7 +174,7 @@
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
 
         
-        private System.Windows.Forms.ListBox _lstMovies;
+        private System.Windows.Forms.ListBox _lstCharacters;
 
         
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;

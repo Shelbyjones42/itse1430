@@ -33,11 +33,11 @@ namespace CharacterCreator.Winform
                 _cbProfession.Text = Character.Profession;
                 _cbRace.Text = Character.Race;
                 _txtDescription.Text = Character.Description;
-                _nudStrength.Text = Character.Strength.ToString ();
-                _nudIntelligence.Text = Character.Intelligence.ToString ();
-                _nudAgility.Text = Character.Agility.ToString ();
-                _nudConstitution.Text = Character.Constitution.ToString ();
-                _nudCharisma.Text = Character.Charisma.ToString ();
+                _txtStrength.Text = Character.Strength.ToString ();
+                _txtIntelligence.Text = Character.Intelligence.ToString ();
+                _txtAgility.Text = Character.Agility.ToString ();
+                _txtConstitution.Text = Character.Constitution.ToString ();
+                _txtCharisma.Text = Character.Charisma.ToString ();
             };
 
             ValidateChildren ();
@@ -52,16 +52,16 @@ namespace CharacterCreator.Winform
             character.Profession = _cbProfession.Text;
             character.Race = _cbRace.Text;
             character.Description = _txtDescription.Text;
-            character.Strength = GetAsDecimal (_nudStrength);
-            character.Intelligence = GetAsDecimal (_nudIntelligence);
-            character.Agility = GetAsDecimal (_nudAgility);
-            character.Constitution = GetAsDecimal (_nudConstitution);
-            character.Charisma = GetAsDecimal (_nudCharisma);
+            character.Strength = GetAsInt32 (_txtStrength);
+            character.Intelligence = GetAsInt32 (_txtIntelligence);
+            character.Agility = GetAsInt32 (_txtAgility);
+            character.Constitution = GetAsInt32 (_txtConstitution);
+            character.Charisma = GetAsInt32 (_txtCharisma);
 
             var message = character.Validate ();
             if (!String.IsNullOrEmpty (message))
             {
-<<<<<<< HEAD
+
                 MessageBox.Show (this, message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             };
@@ -69,28 +69,22 @@ namespace CharacterCreator.Winform
             Character = character;
             DialogResult = DialogResult.OK;
             Close ();
-=======
-                MessageBox.Show (this, message, "Error", )
             }
->>>>>>> 68cf341013862ab2bb00b6ceee97f1db28444cf4
+
 
         }
+    private int GetAsInt32 ( TextBox control )
+    {
+        if (Int32.TryParse (control.Text, out var result))
+            return result;
 
-        private decimal GetAsDecimal (NumericUpDown control)
-        {
-            if (Decimal.TryParse (control.Text, out var result))
-                return result;
+        return 0;
+    }
 
-            return 0;
-        }
-<<<<<<< HEAD
-        private void BtnCancel_Click ( object sender, EventArgs e )
-        {
-            DialogResult = DialogResult.Cancel;
-            Close ();
-        }
 
-        private void OnValidatingName (object sender, CancelEventArgs e)
+
+
+    private void OnValidatingName (object sender, CancelEventArgs e)
         {
             var control = sender as TextBox;
             
@@ -105,13 +99,10 @@ namespace CharacterCreator.Winform
         }
 
 
-=======
-        private void btnCancel_Click ( object sender, EventArgs e )
-        {
-            Close ();
-        }
 
->>>>>>> 68cf341013862ab2bb00b6ceee97f1db28444cf4
+        
+
+
        
     }
 }

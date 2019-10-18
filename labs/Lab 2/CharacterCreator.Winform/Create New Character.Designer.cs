@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent ()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -38,22 +39,19 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this._nudStrength = new System.Windows.Forms.NumericUpDown();
-            this._nudCharisma = new System.Windows.Forms.NumericUpDown();
-            this._nudIntelligence = new System.Windows.Forms.NumericUpDown();
-            this._nudAgility = new System.Windows.Forms.NumericUpDown();
-            this._nudConstitution = new System.Windows.Forms.NumericUpDown();
             this._cbProfession = new System.Windows.Forms.ComboBox();
             this._cbRace = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this._txtDescription = new System.Windows.Forms.RichTextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this._nudStrength)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._nudCharisma)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._nudIntelligence)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._nudAgility)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this._nudConstitution)).BeginInit();
+            this._txtStrength = new System.Windows.Forms.TextBox();
+            this._txtCharisma = new System.Windows.Forms.TextBox();
+            this._txtConstitution = new System.Windows.Forms.TextBox();
+            this._txtAgility = new System.Windows.Forms.TextBox();
+            this._txtIntelligence = new System.Windows.Forms.TextBox();
+            this._errors = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this._errors)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -144,66 +142,6 @@
             this.label9.TabIndex = 9;
             this.label9.Text = "Charisma";
             // 
-            // _nudStrength
-            // 
-            this._nudStrength.Location = new System.Drawing.Point(121, 137);
-            this._nudStrength.Name = "_nudStrength";
-            this._nudStrength.Size = new System.Drawing.Size(35, 20);
-            this._nudStrength.TabIndex = 10;
-            this._nudStrength.Value = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
-            // 
-            // _nudCharisma
-            // 
-            this._nudCharisma.Location = new System.Drawing.Point(121, 249);
-            this._nudCharisma.Name = "_nudCharisma";
-            this._nudCharisma.Size = new System.Drawing.Size(35, 20);
-            this._nudCharisma.TabIndex = 11;
-            this._nudCharisma.Value = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
-            // 
-            // _nudIntelligence
-            // 
-            this._nudIntelligence.Location = new System.Drawing.Point(121, 165);
-            this._nudIntelligence.Name = "_nudIntelligence";
-            this._nudIntelligence.Size = new System.Drawing.Size(35, 20);
-            this._nudIntelligence.TabIndex = 12;
-            this._nudIntelligence.Value = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
-            // 
-            // _nudAgility
-            // 
-            this._nudAgility.Location = new System.Drawing.Point(121, 193);
-            this._nudAgility.Name = "_nudAgility";
-            this._nudAgility.Size = new System.Drawing.Size(35, 20);
-            this._nudAgility.TabIndex = 13;
-            this._nudAgility.Value = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
-            // 
-            // _nudConstitution
-            // 
-            this._nudConstitution.Location = new System.Drawing.Point(121, 219);
-            this._nudConstitution.Name = "_nudConstitution";
-            this._nudConstitution.Size = new System.Drawing.Size(35, 20);
-            this._nudConstitution.TabIndex = 14;
-            this._nudConstitution.Value = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
-            // 
             // _cbProfession
             // 
             this._cbProfession.FormattingEnabled = true;
@@ -267,28 +205,63 @@
             this.btnCancel.TabIndex = 20;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
-<<<<<<< HEAD
-            this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
-=======
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
->>>>>>> 68cf341013862ab2bb00b6ceee97f1db28444cf4
+            // 
+            // _txtStrength
+            // 
+            this._txtStrength.Location = new System.Drawing.Point(130, 136);
+            this._txtStrength.Name = "_txtStrength";
+            this._txtStrength.Size = new System.Drawing.Size(36, 20);
+            this._txtStrength.TabIndex = 21;
+            // 
+            // _txtCharisma
+            // 
+            this._txtCharisma.Location = new System.Drawing.Point(130, 245);
+            this._txtCharisma.Name = "_txtCharisma";
+            this._txtCharisma.Size = new System.Drawing.Size(36, 20);
+            this._txtCharisma.TabIndex = 22;
+            // 
+            // _txtConstitution
+            // 
+            this._txtConstitution.Location = new System.Drawing.Point(130, 219);
+            this._txtConstitution.Name = "_txtConstitution";
+            this._txtConstitution.Size = new System.Drawing.Size(36, 20);
+            this._txtConstitution.TabIndex = 23;
+            // 
+            // _txtAgility
+            // 
+            this._txtAgility.Location = new System.Drawing.Point(130, 192);
+            this._txtAgility.Name = "_txtAgility";
+            this._txtAgility.Size = new System.Drawing.Size(36, 20);
+            this._txtAgility.TabIndex = 24;
+            // 
+            // _txtIntelligence
+            // 
+            this._txtIntelligence.Location = new System.Drawing.Point(130, 164);
+            this._txtIntelligence.Name = "_txtIntelligence";
+            this._txtIntelligence.Size = new System.Drawing.Size(36, 20);
+            this._txtIntelligence.TabIndex = 25;
+            // 
+            // _errors
+            // 
+            this._errors.BlinkStyle = System.Windows.Forms.ErrorBlinkStyle.NeverBlink;
+            this._errors.ContainerControl = this;
             // 
             // Create_New_Character
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(545, 289);
+            this.Controls.Add(this._txtIntelligence);
+            this.Controls.Add(this._txtAgility);
+            this.Controls.Add(this._txtConstitution);
+            this.Controls.Add(this._txtCharisma);
+            this.Controls.Add(this._txtStrength);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this._txtDescription);
             this.Controls.Add(this.label10);
             this.Controls.Add(this._cbRace);
             this.Controls.Add(this._cbProfession);
-            this.Controls.Add(this._nudConstitution);
-            this.Controls.Add(this._nudAgility);
-            this.Controls.Add(this._nudIntelligence);
-            this.Controls.Add(this._nudCharisma);
-            this.Controls.Add(this._nudStrength);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -307,11 +280,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Create_New_Character";
-            ((System.ComponentModel.ISupportInitialize)(this._nudStrength)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._nudCharisma)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._nudIntelligence)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._nudAgility)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this._nudConstitution)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this._errors)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -329,16 +298,17 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.NumericUpDown _nudStrength;
-        private System.Windows.Forms.NumericUpDown _nudCharisma;
-        private System.Windows.Forms.NumericUpDown _nudIntelligence;
-        private System.Windows.Forms.NumericUpDown _nudAgility;
-        private System.Windows.Forms.NumericUpDown _nudConstitution;
         private System.Windows.Forms.ComboBox _cbProfession;
         private System.Windows.Forms.ComboBox _cbRace;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.RichTextBox _txtDescription;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.TextBox _txtStrength;
+        private System.Windows.Forms.TextBox _txtCharisma;
+        private System.Windows.Forms.TextBox _txtConstitution;
+        private System.Windows.Forms.TextBox _txtAgility;
+        private System.Windows.Forms.TextBox _txtIntelligence;
+        private System.Windows.Forms.ErrorProvider _errors;
     }
 }
