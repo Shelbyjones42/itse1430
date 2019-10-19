@@ -57,21 +57,15 @@ namespace CharacterCreator.Winform
             character.Agility = GetAsInt32 (_txtAgility);
             character.Constitution = GetAsInt32 (_txtConstitution);
             character.Charisma = GetAsInt32 (_txtCharisma);
-
-            var message = character.Validate ();
-            if (!String.IsNullOrEmpty (message))
-            {
-
-                MessageBox.Show (this, message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
             };
+
+            if(!Validate(character))
+                return;
 
             Character = character;
             DialogResult = DialogResult.OK;
             Close ();
-            }
-
-
+            
         }
     private int GetAsInt32 ( TextBox control )
     {
@@ -80,9 +74,12 @@ namespace CharacterCreator.Winform
 
         return 0;
     }
-
-
-
+    
+    private bool Validade(IValidatableObject character)
+    {
+        var validatior = new ObjectValidator ();
+        var results = validatior.TryValidateObject (character)
+    }
 
     private void OnValidatingName (object sender, CancelEventArgs e)
         {
