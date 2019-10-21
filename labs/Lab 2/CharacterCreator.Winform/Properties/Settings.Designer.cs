@@ -8,7 +8,15 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+<<<<<<< HEAD
 namespace CharacterCreator.Winform.Properties
+=======
+<<<<<<< HEAD:classwork/MovieLibrary - Original/Itse1430.MovieLib.Host/Properties/Settings.Designer.cs
+namespace Itse1430.MovieLib.Host.Properties
+=======
+namespace CharacterCreator.Winform.Properties
+>>>>>>> 68cf341013862ab2bb00b6ceee97f1db28444cf4:labs/Lab 2/CharacterCreator.Winform/Properties/Settings.Designer.cs
+>>>>>>> 68cf341013862ab2bb00b6ceee97f1db28444cf4
 {
 
 

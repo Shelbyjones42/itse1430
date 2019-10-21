@@ -8,18 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CharacterCreator.Winforms
+namespace CharacterCreator.Host
 {
-    public partial class Form1 : Form
+    public partial class CreateForm : Form
     {
-        public Form1 ()
+        public CreateForm ()
         {
             InitializeComponent ();
         }
-   
-    }
-    private void OnCharacterAdd( object sender, EventArgs e)
-    {
 
+        private void TextBox4_TextChanged ( object sender, EventArgs e )
+        {
+
+        }
     }
 }
