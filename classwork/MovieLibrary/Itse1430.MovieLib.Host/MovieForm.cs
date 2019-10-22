@@ -83,8 +83,9 @@ namespace Itse1430.MovieLib.Host
 
         private bool Validate(IValidatableObject movie)
         {
-            var validatior = new ObjectValidator ();
-            var results = validatior.TryValidateObject (movie);
+            // for lab 2 below
+            // var validatior = new ObjectValidator ();
+            var results = ObjectValidator.TryValidateObject (movie);
             if (results.Count() > 0)
             {
                 //if (!String.IsNullOrEmpty (message))
