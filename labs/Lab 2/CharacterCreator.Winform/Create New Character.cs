@@ -17,16 +17,17 @@ namespace CharacterCreator.Winform
             InitializeComponent ();
         }
 
-        public Create_New_Character(string name) :this()
+        public Create_New_Character ( string name ) : this ()
         {
             Text = name;
         }
 
         public Character Character { get; set; }
         
-        protected override void Onload( EventArgs e )
+        protected override void OnLoad( EventArgs e )
         {
             base.OnLoad (e);
+
             if (Character != null)
             {
                 _txtName.Text = Character.Name;
@@ -47,19 +48,19 @@ namespace CharacterCreator.Winform
             if (!ValidateChildren ())
                 return;
 
-            var character = new Character ();
-            character.Name = _txtName.Text;
-            character.Profession = _cbProfession.Text;
-            character.Race = _cbRace.Text;
-            character.Description = _txtDescription.Text;
-            character.Strength = GetAsInt32 (_txtStrength);
-            character.Intelligence = GetAsInt32 (_txtIntelligence);
-            character.Agility = GetAsInt32 (_txtAgility);
-            character.Constitution = GetAsInt32 (_txtConstitution);
-            character.Charisma = GetAsInt32 (_txtCharisma);
+            var character = new Character () { 
+            Name = _txtName.Text,
+            Profession = _cbProfession.Text,
+            Race = _cbRace.Text,
+            Description = _txtDescription.Text,
+            Strength = GetAsInt32 (_txtStrength),
+            Intelligence = GetAsInt32 (_txtIntelligence),
+            Agility = GetAsInt32 (_txtAgility),
+            Constitution = GetAsInt32 (_txtConstitution),
+            Charisma = GetAsInt32 (_txtCharisma),
             };
 
-            if(!Validate(character))
+            if(!Validate (character))
                 return;
 
             Character = character;
@@ -67,7 +68,10 @@ namespace CharacterCreator.Winform
             Close ();
             
         }
-    private int GetAsInt32 ( TextBox control )
+
+        private bool Validate ( Character character ) => throw new NotImplementedException ();
+
+        private int GetAsInt32 ( TextBox control )
     {
         if (Int32.TryParse (control.Text, out var result))
             return result;
@@ -75,10 +79,18 @@ namespace CharacterCreator.Winform
         return 0;
     }
     
-    private bool Validade(IValidatableObject character)
+    private bool Validate(IValidatableObject character)
     {
-        var validatior = new ObjectValidator ();
-        var results = validatior.TryValidateObject (character)
+
+            var results = ObjectValidator.TryValidateObject (character);
+            if (results.Count() > 0)
+            {
+                foreach (var result in results)
+                {
+                    MessageBox.Show (this, result.ErrorMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                };
+                return false;
+            }
     }
 
     private void OnValidatingName (object sender, CancelEventArgs e)
@@ -95,9 +107,112 @@ namespace CharacterCreator.Winform
             }
         }
 
+    private void OnValidatingProfession ( object sender , CancelEventArgs e)
+        {
+            var control = sender as TextBox;
 
+            if (control.Text == "")
+            {
+                e.Cancel = true;
+                _errors.SetError (control, "Profession is required");
+            }else
+            {
+                _errors.SetError (control, "");
+            }
+        }
 
-        
+    private void OnValidatingRace (object sender, CancelEventArgs e)
+        {
+            var control = sender as TextBox;
+            
+            if (control.Text == "")
+            {
+                e.Cancel = true;
+                _errors.SetError (control, "Race is required");
+            }else
+            {
+                _errors.SetError (control, "");
+            }
+        }
+
+        private void OnValidatingStrength ( object sender, CancelEventArgs e )
+        {
+            var control = sender as TextBox;
+
+            var value = GetAsInt32 (control);
+            if (control.Text == "")
+            {
+                e.Cancel = true;
+                _errors.SetError (control, "Strength is required");
+            } else
+            {
+                _errors.SetError (control, "");
+            }
+        }
+
+        private void OnValidatingIntelligance ( object sender, CancelEventArgs e )
+        {
+            var control = sender as TextBox;
+
+            var value = GetAsInt32 (control);
+            if (control.Text == "")
+            {
+                e.Cancel = true;
+                _errors.SetError (control, "Intelligence is required");
+            } else
+            {
+                _errors.SetError (control, "");
+            }
+        }
+        private void OnValidatingAgility ( object sender, CancelEventArgs e )
+        {
+            var control = sender as TextBox;
+
+            var value = GetAsInt32 (control);
+            if (control.Text == "")
+            {
+                e.Cancel = true;
+                _errors.SetError (control, "Agility is required");
+            } else
+            {
+                _errors.SetError (control, "");
+            }
+        }
+
+        private void OnValidatingConstitution ( object sender, CancelEventArgs e )
+        {
+            var control = sender as TextBox;
+
+            var value = GetAsInt32 (control);
+            if (control.Text == "")
+            {
+                e.Cancel = true;
+                _errors.SetError (control, "Constitution is required");
+            } else
+            {
+                _errors.SetError (control, "");
+            }
+        }
+
+        private void OnValidatingCharisma ( object sender, CancelEventArgs e )
+        {
+            var control = sender as TextBox;
+
+            var value = GetAsInt32 (control);
+            if (control.Text == "")
+            {
+                e.Cancel = true;
+                _errors.SetError (control, "Charisma is required");
+            } else
+            {
+                _errors.SetError (control, "");
+            }
+        }
+
+        private void Create_New_CharacterForm_Load( object sender, EventArgs e)
+        {
+
+        }
 
 
        

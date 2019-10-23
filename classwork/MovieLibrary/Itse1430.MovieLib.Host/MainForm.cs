@@ -139,10 +139,22 @@ namespace Itse1430.MovieLib.Host
             var form = new AboutBox1 ();
             form.ShowDialog (this);
         }
-
+        
+        private string OrderByTitle( Movie movie)
+        {
+            return movie.Title;
+        }
+        private int OrderByReleaseYear (Movie movie)
+        {
+            return movie.ReleaseYear;
+        }
         private void UpdateUI ()
         {
-            var movies = _movies.GetAll ();
+            var movies = _movies.GetAll ()
+                                .OrderBy (OrderByTitle)
+                                .ThenBy (OrderByReleaseYear);
+
+            PlayWithEnumerable (movies);
 
             //var movie = movies[0];
             //movie.Title = "Bob";
@@ -152,8 +164,16 @@ namespace Itse1430.MovieLib.Host
             //_lstMovies.Items.AddRange(movies);
 
             //For more complex bindings
-            
+           
+                           
             _lstMovies.DataSource = movies.ToArray();
+        }
+
+        private void PlayWithEnumerable( IEnumerable<Movie> movies)
+        {
+            Movie firstOne = movies.FirstOrDefault ();
+            Movie lastOne = movies.LastOrDefault ();
+            //Movie onlyOne = movies.SingleOrDefault ();
         }
 
         private IMovieDatabase _movies;

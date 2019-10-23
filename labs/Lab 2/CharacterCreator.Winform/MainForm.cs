@@ -140,5 +140,10 @@ namespace CharacterCreator.Winform
                 if (character != null)
                     characters[i++] = character;
         }
+
+        private void _lstCharacters_SelectedIndexChanged ( object sender, EventArgs e )
+        {
+
+        }
     }
 }

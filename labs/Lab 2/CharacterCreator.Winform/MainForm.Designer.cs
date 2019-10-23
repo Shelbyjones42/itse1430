@@ -87,26 +87,26 @@
             // 
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
             this.addToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Insert;
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.addToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.addToolStripMenuItem.Text = "Add";
             this.addToolStripMenuItem.Click += new System.EventHandler(this.OnCharacterAdd);
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.editToolStripMenuItem.Text = "Edit";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.OnCharacterEdit);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(115, 6);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.OnCharacterDelete);
             // 
@@ -126,16 +126,17 @@
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.OnHelpAbout);
             // 
-            // _lstMovies
+            // _lstCharacters
             // 
             this._lstCharacters.DisplayMember = "Title";
             this._lstCharacters.Dock = System.Windows.Forms.DockStyle.Fill;
             this._lstCharacters.FormattingEnabled = true;
             this._lstCharacters.Location = new System.Drawing.Point(0, 0);
             this._lstCharacters.Margin = new System.Windows.Forms.Padding(4);
-            this._lstCharacters.Name = "_lstMovies";
+            this._lstCharacters.Name = "_lstCharacters";
             this._lstCharacters.Size = new System.Drawing.Size(266, 412);
             this._lstCharacters.TabIndex = 1;
+            this._lstCharacters.SelectedIndexChanged += new System.EventHandler(this._lstCharacters_SelectedIndexChanged);
             // 
             // MainForm
             // 
