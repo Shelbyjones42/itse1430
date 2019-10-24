@@ -21,8 +21,8 @@ namespace Itse1430.MovieLib.Host
             _movies = new MemoryMovieDatabase ();
             var count = _movies.GetAll ().Count ();
             if (count == 0)
-                MovieDatabaseExtensions.Seed (_movies);
-
+                //MovieDatabaseExtensions.Seed (_movies);
+                _movies.Seed ();
             UpdateUI ();
         }
 
@@ -46,12 +46,17 @@ namespace Itse1430.MovieLib.Host
         {
             //return _lstMovies.SelectedItem as Movie;
             var item = _lstMovies.SelectedItem;
+            
             //if (item == null)
             //    return null;
 
             //Movie or null
             return item as Movie;
 
+            //var firstMovie = _lstMovies.SelectedItems
+            //                           .OfType<Movie> ()
+            //                           .FirstOrDefault ();
+            
             ////Other approaches
             ////C-style cast
             //(Movie)item;
@@ -151,8 +156,10 @@ namespace Itse1430.MovieLib.Host
         private void UpdateUI ()
         {
             var movies = _movies.GetAll ()
-                                .OrderBy (OrderByTitle)
-                                .ThenBy (OrderByReleaseYear);
+                                //.OrderBy (OrderByTitle)
+                                .OrderBy (m => m.Title)
+                                //.ThenBy (OrderByReleaseYear);
+                                .ThenBy (m => m.ReleaseYear);
 
             PlayWithEnumerable (movies);
 
@@ -174,6 +181,24 @@ namespace Itse1430.MovieLib.Host
             Movie firstOne = movies.FirstOrDefault ();
             Movie lastOne = movies.LastOrDefault ();
             //Movie onlyOne = movies.SingleOrDefault ();
+
+            // var coolMovies = movies.Where(m => m.ReleaseYear > 1979
+            //&& m.ReleaseYear < 2000);
+
+            int id = 1;
+            //var otherMovies = movies.Where(m => m.Id > ++id);
+            var temp1 = new NestedType { id = id };
+            var otherMovies = movies.Where (temp1.WhereCondition);
+            var lastId = id;
+        }
+        
+        private sealed class NestedType
+        {
+            public int id { get; set; }
+            public bool WhereCondition ( Movie m )
+            {
+                return m.Id > ++id;
+            }
         }
 
         private IMovieDatabase _movies;

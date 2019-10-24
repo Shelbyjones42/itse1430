@@ -18,22 +18,24 @@ namespace Itse1430.MovieLib
         {
             //null coalescing
             // !String.IsNullOrEmpty(_title) ? _title : ""
-            get { return _title ?? ""; }
-            set { _title = value; }
+            //get { return _title ?? ""; }
+            get => _title ?? "";
+            //set { _title = value; }
+            set => _title = value;
         }
 
         /// <summary>Gets or sets the description of the movie.</summary>
         public string Description
         {
-            get { return _description ?? ""; }
-            set { _description = value; }
+            get => _description ?? ""; 
+            set => _description = value; 
         }
 
         /// <summary>Gets or sets the rating of the movie.</summary>
         public string Rating
         {
-            get { return _rating ?? ""; }
-            set { _rating = value; }
+            get => _rating ?? ""; 
+            set => _rating = value; 
         }
 
         /// <summary>Gets or sets the release year of the movie.</summary>
@@ -63,34 +65,35 @@ namespace Itse1430.MovieLib
         //public int ReleaseYearForColor { get; } = 1939;
 
         //Constant field
-        //public const int ReleaseYearForColor = 1939;
-        public readonly int ReleaseYearForColor = 1939;
+        public const int ReleaseYearForColor = 1939;
+        //public readonly int ReleaseYearForColor = 1939;
 
         /// <summary>Dermines if a movie is B&W.</summary>
         public bool IsBlackAndWhite
-        {
+        
             //Calculated propterty, no backing field
             //Just calculating a value
-            get { return ReleaseYear <= ReleaseYearForColor; }
+            => ReleaseYear <= ReleaseYearForColor; 
             
             //Not settable by anyone
             //set { }
-        }
+        
 
         //Mixed accessibility - property must be most visible
         public string TestAccessibility
         {
             //Single accessor can be more restictive
-            get { return ""; }
+            get =>  ""; 
 
             //Not writable outside class
             private set { }
         }
 
         public override string ToString ()
-        {
-            return $"{Title} ({ReleaseYear})";
-        }
+            =>  $"{Title} ({ReleaseYear})";
+        //{
+        //    return
+        //}
 
         
 

@@ -20,6 +20,7 @@ namespace Itse1430.MovieLib
         protected override Movie GetCore ( int id )
         {
             var movie = FindMovie (id);
+
             return movie != null ? Clone (new Movie (), movie) : null;
         }
 
