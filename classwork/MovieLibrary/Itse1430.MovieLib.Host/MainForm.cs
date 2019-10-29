@@ -33,7 +33,7 @@ namespace Itse1430.MovieLib.Host
 
             //Modeless - does not block main window
             //form.Show();
-
+            
             //Show the new movie form modally
             if (form.ShowDialog (this) == DialogResult.OK)
             {
@@ -155,11 +155,14 @@ namespace Itse1430.MovieLib.Host
         }
         private void UpdateUI ()
         {
-            var movies = _movies.GetAll ()
-                                //.OrderBy (OrderByTitle)
-                                .OrderBy (m => m.Title)
-                                //.ThenBy (OrderByReleaseYear);
-                                .ThenBy (m => m.ReleaseYear);
+            var movies = from m in _movies.GetAll ()
+                         orderby m.Title, m.ReleaseYear
+                         select m;
+            //var movies = _movies.GetAll ()
+            //                    //.OrderBy (OrderByTitle)
+            //                    .OrderBy (m => m.Title)
+            //                    //.ThenBy (OrderByReleaseYear);
+            //                    .ThenBy (m => m.ReleaseYear);
 
             PlayWithEnumerable (movies);
 

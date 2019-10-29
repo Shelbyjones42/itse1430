@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 
 namespace Itse1430.MovieLib
 {
@@ -25,18 +27,37 @@ namespace Itse1430.MovieLib
         }
 
         protected override IEnumerable<Movie> GetAllCore ()
+                //=> _movies.Select (m => Clone (new Movie (), m));
         {
-            foreach (var movie in _movies)
-                yield return Clone (new Movie (), movie);
+            // _movies.Where(m => m.Id > 0)
+            //        .Select(m => Clone(new Movie(0, m));
+
+            // LINQ syntax
+            return from m in _movies
+                   //where m.Id > 0
+                   //orderby m.Title, m.ReleaseYear
+                   select Clone (new Movie (), m);
+            //return _movies.Select (m => Clone(new Movie(), m));
+            //foreach (var movie in _movies)
+            //    yield return Clone (new Movie (), movie);
         }
 
         protected override Movie GetByNameCore ( string name )
         {
-            foreach (var movie in _movies)
-                if (String.Compare (movie.Title, name, true) == 0)
-                    return movie;
+            return _movies.FirstOrDefault (m => String.Compare (m.Title, name, true) == 0);
 
-            return null;
+            //LINQ syntax equivalent
+            //return (from m in _movies
+            //       where String.Compare (m.Title, name, true) == 0
+            //        select m).FirstOrDefault ();
+
+            //return _movies.Where (m => String.Compare (m.Title, name, true) == 0)
+            //                   .FirstOrDefault ();
+            //foreach (var movie in _movies)
+            //    if (String.Compare (movie.Title, name, true) == 0)
+            //        return movie;
+
+            //return null;
         }
 
         protected override void RemoveCore ( int id )
@@ -50,7 +71,7 @@ namespace Itse1430.MovieLib
         {
             var existing = FindMovie (id);
             if (existing == null)
-                return null; //TODO: Error
+                throw new FileNotFoundException ();
 
             //Update existing movie
             newMovie.Id = id;
