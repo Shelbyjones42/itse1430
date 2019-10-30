@@ -70,8 +70,8 @@ namespace Itse1430.MovieLib
         protected override Movie UpdateCore ( int id, Movie newMovie )
         {
             var existing = FindMovie (id);
-            if (existing == null)
-                throw new FileNotFoundException ();
+            //if (existing == null)
+                throw new IOException ("Movie not found.");
 
             //Update existing movie
             newMovie.Id = id;
