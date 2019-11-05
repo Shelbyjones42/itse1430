@@ -59,8 +59,8 @@ namespace Itse1430.MovieLib
         
         public IEnumerable<Movie> GetAll ()
 
-        {
-            return GetAllCore ();
+        
+            => GetAllCore () ?? Enumerable.Empty<Movie>();
 
             // Lab 2
             //foreach  (var movie in _movies)
@@ -82,7 +82,7 @@ namespace Itse1430.MovieLib
             //        movies[index++] = Clone (new Movie (), movie);
             //
             //return movies;
-        }
+        
 
         
 
