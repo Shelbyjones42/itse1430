@@ -73,6 +73,7 @@ namespace Itse1430.MovieLib.IO
             // stream.Read(new byte[10], 0, 10);
 
             // Readerway
+            // Exception Safe
             using (var reader = new StreamReader (_filePath))
                 
             //try
