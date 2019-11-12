@@ -139,6 +139,8 @@ namespace CharacterCreator.Winform
             foreach (var character in _characters)
                 if (character != null)
                     characters[i++] = character;
+
+            return characters;
         }
 
         private void _lstCharacters_SelectedIndexChanged ( object sender, EventArgs e )
