@@ -54,7 +54,7 @@ namespace Itse1430.MovieLib.Host
                     MessageBox.Show (ex.Message, "Validation Error",
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Error);
-                } catch (Exception ex )
+                } catch //(Exception ex )
                 {
                     MessageBox.Show ("Save failed", "Error",
                                     MessageBoxButtons.OK,
