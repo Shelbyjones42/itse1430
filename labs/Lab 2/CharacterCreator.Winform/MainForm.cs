@@ -75,8 +75,8 @@ namespace CharacterCreator.Winform
             var text2 = (menuItem != null) ? menuItem.Text : "";
 
             var text3 = menuItem?.Text ?? "";
-            var movie = GetSelectedCharacter ();
-            if (movie == null)
+            var character = GetSelectedCharacter ();
+            if (character == null)
                 return;
 
             var msg = $"Are you sure you want to delete {character.Name}?";
@@ -139,6 +139,8 @@ namespace CharacterCreator.Winform
             foreach (var character in _characters)
                 if (character != null)
                     characters[i++] = character;
+
+            return characters;
         }
 
         private void _lstCharacters_SelectedIndexChanged ( object sender, EventArgs e )

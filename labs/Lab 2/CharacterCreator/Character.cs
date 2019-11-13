@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,6 +43,8 @@ namespace CharacterCreator
         {
             return $"{Name} ({Profession})";
         }
+
+        public IEnumerable<ValidationResult> Validate ( ValidationContext validationContext ) => throw new NotImplementedException ();
 
         private string _name = "";
         private string _profession = "";

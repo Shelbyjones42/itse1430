@@ -1,17 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
 using System.Text;
- 
-namespace Itse1430.MovieLib
+
+namespace CharacterCreator
 {
     public static class ObjectValidator
     {
-        public static IEnumerable<ValidationResult> TryValidateObject( IValidatableObject value )
+        public static IEnumerable<ValidationResult> TryValidateObject ( IValidatableObject value )
         {
             var results = new List<ValidationResult> ();
-
             var context = new ValidationContext (value);
             Validator.TryValidateObject (value, context, results);
 

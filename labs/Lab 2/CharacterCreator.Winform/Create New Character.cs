@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -90,7 +91,8 @@ namespace CharacterCreator.Winform
                     MessageBox.Show (this, result.ErrorMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 };
                 return false;
-            }
+            };
+            return true;
     }
 
     private void OnValidatingName (object sender, CancelEventArgs e)
