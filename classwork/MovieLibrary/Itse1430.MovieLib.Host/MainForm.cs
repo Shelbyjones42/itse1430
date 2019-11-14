@@ -54,7 +54,7 @@ namespace Itse1430.MovieLib.Host
                     MessageBox.Show (ex.Message, "Validation Error",
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Error);
-                } catch //(Exception ex )
+                } catch (Exception ex )
                 {
                     MessageBox.Show ("Save failed", "Error",
                                     MessageBoxButtons.OK,
@@ -114,9 +114,27 @@ namespace Itse1430.MovieLib.Host
             form.Movie = movie;
 
             if (form.ShowDialog (this) == DialogResult.OK)
+                return;
+
+            try
             {
                 _movies.Update (movie.Id, form.Movie);
                 UpdateUI ();
+            } catch (ArgumentException ex)
+            {
+                MessageBox.Show (ex.Message, "Error",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            } catch (ValidationException ex)
+            {
+                MessageBox.Show (ex.Message, "Validation Error",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            } catch (Exception ex)
+            {
+                MessageBox.Show ("Save failed", "Error",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
             };
         }
 
@@ -153,8 +171,14 @@ namespace Itse1430.MovieLib.Host
                 return;
 
             //Delete it
-            _movies.Remove (movie.Id);
-            UpdateUI ();
+            try
+            {
+                _movies.Remove (movie.Id);
+                UpdateUI ();
+            } catch (Exception ex)
+            {
+                MessageBox.Show ("Delete failed", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            };
         }
 
         private void OnFileExit ( object sender, EventArgs e )

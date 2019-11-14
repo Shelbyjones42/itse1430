@@ -53,8 +53,8 @@ namespace Itse1430.MovieLib.Host
 
         private void OnSave ( object sender, EventArgs e )
         {
-            if (!ValidateChildren ())
-                return;
+            //if (!ValidateChildren ())
+            //    return;
 
 
             //Object initilizer syntax
@@ -67,10 +67,10 @@ namespace Itse1430.MovieLib.Host
                 Rating = cbRating.Text,
                 HasSeen = chkHasSeen.Checked,
             };
-
+            var test = movie.TestAccessibility;
             //Validate
-            if (!Validate (movie))
-                return;
+            //if (!Validate (movie))
+            //    return;
 
             
 
