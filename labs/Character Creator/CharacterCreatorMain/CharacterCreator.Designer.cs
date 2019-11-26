@@ -48,7 +48,7 @@
             this.toolStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip2.Location = new System.Drawing.Point(0, 28);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(381, 25);
+            this.toolStrip2.Size = new System.Drawing.Size(277, 25);
             this.toolStrip2.TabIndex = 0;
             this.toolStrip2.Text = "toolStrip2";
             // 
@@ -61,7 +61,7 @@
             this.toolStripMenuItem2});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(381, 28);
+            this.menuStrip2.Size = new System.Drawing.Size(277, 28);
             this.menuStrip2.TabIndex = 1;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -143,17 +143,19 @@
             this._lstCharacters.ItemHeight = 16;
             this._lstCharacters.Location = new System.Drawing.Point(12, 28);
             this._lstCharacters.Name = "_lstCharacters";
-            this._lstCharacters.Size = new System.Drawing.Size(357, 212);
+            this._lstCharacters.Size = new System.Drawing.Size(258, 372);
             this._lstCharacters.TabIndex = 2;
             // 
             // MainForm
             // 
-            this.ClientSize = new System.Drawing.Size(381, 253);
+            this.ClientSize = new System.Drawing.Size(277, 410);
             this.Controls.Add(this._lstCharacters);
             this.Controls.Add(this.toolStrip2);
             this.Controls.Add(this.menuStrip2);
             this.MainMenuStrip = this.menuStrip2;
+            this.MinimumSize = new System.Drawing.Size(260, 420);
             this.Name = "MainForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
             this.ResumeLayout(false);
