@@ -172,7 +172,7 @@ namespace Itse1430.MovieLib
         //private int _releaseYear = 1900;
         //private bool _hasSeen;
         //private int _runLength;
-        //private readonly int _releaseYearForColo = 1938;
+        //private readonly int _releaseYearForColor = 1938;
 
     }
 }       
