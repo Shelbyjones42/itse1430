@@ -123,7 +123,7 @@ namespace CharacterCreatorMain
             var control = sender as TextBox;
 
             var value = GetAsInt32 (control);
-            if (value < 0 && value > 100)
+            if (value > 100 || value < 0)
             {
                 e.Cancel = true;
                 _errors.SetError (control, "Strength must be greater than 0 and less than 100");
@@ -138,7 +138,7 @@ namespace CharacterCreatorMain
             var control = sender as TextBox;
 
             var value = GetAsInt32 (control);
-            if (value < 0 && value > 100)
+            if (value > 100 || value < 0)
             {
                 e.Cancel = true;
                 _errors.SetError (control, "Intelligence must be greater than 0 and less than 100");
@@ -153,7 +153,7 @@ namespace CharacterCreatorMain
             var control = sender as TextBox;
 
             var value = GetAsInt32 (control);
-            if (value < 0 && value > 100)
+            if (value > 100 || value < 0)
             {
                 e.Cancel = true;
                 _errors.SetError (control, "Agility must be greater than 0 and less than 100");
@@ -168,7 +168,7 @@ namespace CharacterCreatorMain
             var control = sender as TextBox;
 
             var value = GetAsInt32 (control);
-            if (value < 0 && value > 100)
+            if (value > 100 || value < 0)
             {
                 e.Cancel = true;
                 _errors.SetError (control, "Constitution must be greater than 0 and less than 100");
@@ -183,7 +183,7 @@ namespace CharacterCreatorMain
             var control = sender as TextBox;
 
             var value = GetAsInt32 (control);
-            if (value < 0 && value > 100)
+            if (value > 100 || value < 0)
             {
                 e.Cancel = true;
                 _errors.SetError (control, "Charisma must be greater than 0 and less than 100");
