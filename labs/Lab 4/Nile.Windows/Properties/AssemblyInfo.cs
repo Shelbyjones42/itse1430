@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Nile.Windows")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle ("Shelby Jones")]
+[assembly: AssemblyDescription ("Nile")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("TCCD")]
-[assembly: AssemblyProduct("Nile")]
-[assembly: AssemblyCopyright("Copyright ©  2017")]
+[assembly: AssemblyCompany ("Shelby Jones")]
+[assembly: AssemblyProduct ("ITSE 1430")]
+[assembly: AssemblyCopyright ("Fall 2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
