@@ -15,6 +15,7 @@ namespace Nile.Stores
         protected override Product AddCore ( Product product )
         {
             var newProduct = CopyProduct(product);
+
             _products.Add(newProduct);
 
             if (newProduct.Id <= 0)
@@ -61,6 +62,8 @@ namespace Nile.Stores
             _products.Remove(existing);
             
             var newProduct = CopyProduct(product);
+           
+            
             _products.Add(newProduct);
 
             return CopyProduct(newProduct);
