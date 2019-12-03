@@ -2,8 +2,10 @@
  * ITSE 1430
  */
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Configuration;
+using System.Linq;
 using System.Windows.Forms;
 using Nile.Stores.Sql;
 
@@ -176,13 +178,25 @@ namespace Nile.Windows
         {
             try
             {
-                _bsProducts.DataSource = _database.GetAll ();
+                _bsProducts.DataSource = from p in _database.GetAll ()
+                                         orderby p.Name select p;
+
             } catch (ValidationException ex)
             {
                 MessageBox.Show (ex.Message, "Validation Error",
-                                MessageBoxButtons.OK,
-                                MessageBoxIcon.Error);
+                                 MessageBoxButtons.OK,
+                                 MessageBoxIcon.Error);
             };
+        }
+
+        // give me an ebumerable that can be sorted
+        private void PlayWithEnumerable ( IEnumerable<Product> product )
+        {
+            Product firstOne = product.FirstOrDefault ();
+            Product lastOne = product.LastOrDefault ();
+
+            int id = 1;
+            var otherProduct = product.Where (p => p.Id > ++id);
         }
 
         // took out the readonly
