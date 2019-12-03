@@ -1,5 +1,7 @@
 /*
- * ITSE 1430
+ * ITSE 1430 
+ * 
+ * Memory-based movie database.
  */
 using System;
 using System.Collections.Generic;

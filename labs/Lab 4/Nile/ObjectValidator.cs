@@ -1,4 +1,9 @@
-﻿using System;
+﻿/*
+ * ITSE 1430 
+ * 
+ * Helper type to validate objects.
+ */
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;

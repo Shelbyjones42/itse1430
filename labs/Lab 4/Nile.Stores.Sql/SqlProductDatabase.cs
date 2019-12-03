@@ -48,9 +48,6 @@ namespace Nile.Stores.Sql
                 conn.Open ();
                 using (var reader = cmd.ExecuteReader ())
                 {
-                    //Multiple tables
-                    //reader.NextResult()
-
                     if (reader.Read ())
                     {
                         var nameIndex = reader.GetOrdinal ("Name");
@@ -142,7 +139,7 @@ namespace Nile.Stores.Sql
         private SqlConnection CreateConnection ()
         {
             var conn = new SqlConnection (_connectionString);
-            //conn.Open ();
+            
             return conn;
         }
         private readonly string _connectionString;
