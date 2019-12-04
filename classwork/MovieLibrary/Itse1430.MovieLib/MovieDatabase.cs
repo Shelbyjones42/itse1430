@@ -62,7 +62,7 @@ namespace Itse1430.MovieLib
         
             => GetAllCore () ?? Enumerable.Empty<Movie>();
 
-            // Lab 2
+            // Lab 3
             //foreach  (var movie in _movies)
             //{
             //    yield return Clone (new Movie (), movie);
