@@ -1,16 +1,16 @@
 ﻿@model IEnumerable<Itse1430.MovieLib.WebHost.Models.MovieModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "List";
+    ViewBag.SomeProperty = 10;
+    var value = ViewBag.AnotherProperty;
 }
 
-<h2>Index</h2>
+<h1>List</h1>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
-    <tr>
+    <thead>
+        <tr>
         <th>
             @Html.DisplayNameFor(model => model.Title)
         </th>
@@ -30,7 +30,8 @@
             @Html.DisplayNameFor(model => model.HasSeen)
         </th>
         <th></th>
-    </tr>
+        </tr>
+    </thead>
 
 @foreach (var item in Model) {
     <tr>
@@ -61,3 +62,6 @@
 }
 
 </table>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
