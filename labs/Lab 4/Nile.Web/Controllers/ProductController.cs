@@ -94,7 +94,7 @@ namespace Nile.Web.Controllers
                     _database.Update (product);
 
                     //PRG 
-                    return RedirectToAction ("Edit", new { id = product.Id });
+                    return RedirectToAction ("Index", new { id = product.Id });
                 };
             } catch (Exception e)
             {
@@ -126,6 +126,17 @@ namespace Nile.Web.Controllers
                 ModelState.AddModelError ("", e.Message);
             };
 
+            return View (model);
+        }
+
+        [HttpGet]
+        public ActionResult Details ( int id )
+        {
+            var product = _database.Get (id);
+            if (product == null)
+                return HttpNotFound ();
+
+            var model = product.ToModel ();
             return View (model);
         }
 
